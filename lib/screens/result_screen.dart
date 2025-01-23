@@ -25,25 +25,57 @@ class ResultScreen extends StatelessWidget {
     }
     return Scaffold(
       appBar: AppBar(
-        title: Text('Результат'),
+        backgroundColor: Colors.grey.shade200,
+        title: Text(
+          'Результат',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            color: Colors.indigo,
+          ),
+        ),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text('Вы выбрали: $playerChoice', style: TextStyle(fontSize: 20)),
-            Text('Противник выбрал: $opponentChoice',
-                style: TextStyle(fontSize: 20)),
-            Text(result,
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
-            SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              child: Text('Ещё раз'),
-            ),
-          ],
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [Colors.indigo.shade300, Colors.indigo.shade900],
+          ),
+        ),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                'Вы выбрали: $playerChoice',
+                style: TextStyle(fontSize: 20, color: Colors.white),
+              ),
+              Text(
+                'Противник выбрал: $opponentChoice',
+                style: TextStyle(fontSize: 20, color: Colors.white),
+              ),
+              Text(
+                result,
+                style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white),
+              ),
+              SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: Text(
+                  'Ещё раз',
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.indigo,
+                      fontSize: 16),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
